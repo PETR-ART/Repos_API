@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>Register Form</p>
+
+    <form action="" method="post" novalidate>
+        <div>
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+            <p>
+                {{ form.login.label }}
+                {{ form.login(type='email') }}
+                {% for error in form.login.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}
+                {{ form.password(type='password') }}
+                {% for error in form.password.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.repeat_password.label }}
+                {{ form.repeat_password(type='password') }}
+                {% for error in form.repeat_password.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.surname.label }}
+                {{ form.surname(type='string') }}
+                {% for error in form.surname.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.name.label }}
+                {{ form.name(type='string') }}
+                {% for error in form.name.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.age.label }}
+                {{ form.age(type='integer') }}
+                {% for error in form.age.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.submit(type='submit') }}
+                {{ message }}
+            </p>
+
+    </form>
+{% endblock %}
